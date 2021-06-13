@@ -1,10 +1,18 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 function Image(props) {
     return (
-        <div className={props.className}>
-            <img src={props.src} className="w-full h-full" />
-        </div>
+        <Link to={props.to || '/'} className={props.className}>
+            <img
+                src={props.src}
+                alt={props.alt || 'image isoblanja'}
+                className={`w-full h-full ${
+                    props.className?.split(' ')
+                        .find(i => i.startsWith('rounded'))
+                }`}
+            />
+        </Link>
     );
 }
 
